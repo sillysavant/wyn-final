@@ -4,17 +4,14 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const authRouter = require("./routes/auth");
-const postRouter = require("./routes/post");
 
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@@wyn-final.zktq6.mongodb.net/?retryWrites=true&w=majority&appName=wyn-final`,
+      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@wyn-final.zktq6.mongodb.net/?retryWrites=true&w=majority&appName=wyn-final`,
       {
-        useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: false,
       }
     );
 
@@ -32,7 +29,6 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/auth", authRouter);
-app.use("/api/posts", postRouter);
 
 const PORT = process.env.PORT || 5000;
 
