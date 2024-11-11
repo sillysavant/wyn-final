@@ -1,25 +1,23 @@
 const mongoose = require("mongoose");
-const AddressSchema = require("./Address");
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
+const AddressSchema = new Schema({
+  address: {
     type: String,
     required: true,
   },
-  name: {
+  city: {
     type: String,
     required: true,
   },
-  phone: {
+  country: {
     type: String,
+    required: true,
   },
-  address: AddressSchema,
+  zip: {
+    type: String,
+    required: true,
+  },
 });
 
-module.exports = mongoose.model("users", UserSchema);
+module.exports = AddressSchema;
