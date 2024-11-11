@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const verifyToken = require("../middleware/auth");
 
 const User = require("../models/User");
-const Mail = require("./mail");
+const Mail = require("../models/mail");
 
 // @route GET api/auth
 // @desc Check if user is logged in
