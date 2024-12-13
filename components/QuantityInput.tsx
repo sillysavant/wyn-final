@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: Quantity input for incrementing and decrementing product quantity on the single product page
 // Name of the component: QuantityInput.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <QuantityInput quantityCount={quantityCount} setQuantityCount={setQuantityCount} />
 // Input parameters: QuantityInputProps interface
@@ -19,9 +19,10 @@ interface QuantityInputProps {
   setQuantityCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const QuantityInput = ({quantityCount, setQuantityCount} : QuantityInputProps) => {
-
-
+const QuantityInput = ({
+  quantityCount,
+  setQuantityCount,
+}: QuantityInputProps) => {
   const handleQuantityChange = (actionName: string): void => {
     if (actionName === "plus") {
       setQuantityCount(quantityCount + 1);

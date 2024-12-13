@@ -1,7 +1,7 @@
 // *********************
-// Role of the component: Product item component 
+// Role of the component: Product item component
 // Name of the component: ProductItem.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <ProductItem product={product} color={color} />
 // Input parameters: { product: Product; color: string; }

@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: products section intended to be on the home page
 // Name of the component: ProductsSection.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <ProductsSection slug={slug} />
 // Input parameters: no input parameters

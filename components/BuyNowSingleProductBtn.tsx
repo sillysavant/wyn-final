@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: Buy Now button that adds product to the cart and redirects to the checkout page
 // Name of the component: BuyNowSingleProductBtn.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <BuyNowSingleProductBtn product={product} quantityCount={quantityCount} />
 // Input parameters: SingleProductBtnProps interface

@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: Custom button component
 // Name of the component: CustomButton.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <CustomButton paddingX={paddingX} paddingY={paddingY} text={text} buttonType={buttonType} customWidth={customWidth} textSize={textSize} />
 // Input parameters: CustomButtonProps interface
@@ -25,14 +25,14 @@ const CustomButton = ({
   text,
   buttonType,
   customWidth,
-  textSize
+  textSize,
 }: CustomButtonProps) => {
-
-
   return (
     <button
       type={`${buttonType}`}
-      className={`${customWidth !== "no" && `w-${customWidth}`} uppercase bg-white px-${paddingX} py-${paddingY} text-${textSize} border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2`}
+      className={`${
+        customWidth !== "no" && `w-${customWidth}`
+      } uppercase bg-white px-${paddingX} py-${paddingY} text-${textSize} border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2`}
     >
       {text}
     </button>

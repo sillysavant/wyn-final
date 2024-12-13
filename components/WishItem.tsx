@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: Wishlist item component for wishlist page
 // Name of the component: WishItem.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <WishItem id={id} title={title} price={price} image={image} slug={slug} stockAvailabillity={stockAvailabillity} />
 // Input parameters: ProductInWishlist interface
@@ -54,16 +54,14 @@ const WishItem = ({
   };
 
   const deleteItemFromWishlist = async (productId: string) => {
-    
     if (userId) {
-
-      fetch(`http://localhost:3001/api/wishlist/${userId}/${productId}`, {method: "DELETE"}).then(
-        (response) => {
-          removeFromWishlist(productId);
-          toast.success("Item removed from your wishlist");
-        }
-      );
-    }else{
+      fetch(`http://localhost:3001/api/wishlist/${userId}/${productId}`, {
+        method: "DELETE",
+      }).then((response) => {
+        removeFromWishlist(productId);
+        toast.success("Item removed from your wishlist");
+      });
+    } else {
       toast.error("You need to be logged in to perform this action");
     }
   };

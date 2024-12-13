@@ -3,7 +3,7 @@
 // *********************
 // Role of the component: Component that displays all orders on admin dashboard page
 // Name of the component: AdminOrders.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <AdminOrders />
 // Input parameters: No input parameters
@@ -67,7 +67,9 @@ const AdminOrders = () => {
                     <div className="flex items-center gap-5">
                       <div>
                         <div className="font-bold">{order?.name}</div>
-                        <div className="text-sm opacity-50">{order?.country}</div>
+                        <div className="text-sm opacity-50">
+                          {order?.country}
+                        </div>
                       </div>
                     </div>
                   </td>
@@ -82,7 +84,9 @@ const AdminOrders = () => {
                     <p>${order?.total}</p>
                   </td>
 
-                  <td>{ new Date(Date.parse(order?.dateTime)).toDateString() }</td>
+                  <td>
+                    {new Date(Date.parse(order?.dateTime)).toDateString()}
+                  </td>
                   <th>
                     <Link
                       href={`/admin/orders/${order?.id}`}

@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: Product table component on admin dashboard page
 // Name of the component: DashboardProductTable.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <DashboardProductTable />
 // Input parameters: no input parameters
@@ -19,7 +19,9 @@ const DashboardProductTable = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/products?mode=admin", {cache: "no-store"})
+    fetch("http://localhost:3001/api/products?mode=admin", {
+      cache: "no-store",
+    })
       .then((res) => {
         return res.json();
       })
@@ -78,7 +80,11 @@ const DashboardProductTable = () => {
                           <Image
                             width={48}
                             height={48}
-                            src={product?.mainImage ? `/${product?.mainImage}` : "/product_placeholder.jpg"}
+                            src={
+                              product?.mainImage
+                                ? `/${product?.mainImage}`
+                                : "/product_placeholder.jpg"
+                            }
                             alt="Avatar Tailwind CSS Component"
                             className="w-auto h-auto"
                           />
@@ -94,12 +100,15 @@ const DashboardProductTable = () => {
                   </td>
 
                   <td>
-                    { product?.inStock ? (<span className="badge badge-success text-white badge-sm">
-                      In stock
-                    </span>) : (<span className="badge badge-error text-white badge-sm">
-                      Out of stock
-                    </span>) }
-                    
+                    {product?.inStock ? (
+                      <span className="badge badge-success text-white badge-sm">
+                        In stock
+                      </span>
+                    ) : (
+                      <span className="badge badge-error text-white badge-sm">
+                        Out of stock
+                      </span>
+                    )}
                   </td>
                   <td>${product?.price}</td>
                   <th>

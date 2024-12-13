@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: SortBy
 // Name of the component: SortBy.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <SortBy />
 // Input parameters: no input parameters

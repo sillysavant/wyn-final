@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: Quantity input for incrementing and decrementing product quantity on the cart page
 // Name of the component: QuantityInputCart.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <QuantityInputCart product={product} />
 // Input parameters: { product: ProductInCart }
@@ -14,7 +14,7 @@ import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 
-const QuantityInputCart = ({ product } : { product: ProductInCart }) => {
+const QuantityInputCart = ({ product }: { product: ProductInCart }) => {
   const [quantityCount, setQuantityCount] = useState<number>(product.amount);
   const { updateCartAmount, calculateTotals } = useProductStore();
 
@@ -23,8 +23,6 @@ const QuantityInputCart = ({ product } : { product: ProductInCart }) => {
       setQuantityCount(() => quantityCount + 1);
       updateCartAmount(product.id, quantityCount + 1);
       calculateTotals();
-
-      
     } else if (actionName === "minus" && quantityCount !== 1) {
       setQuantityCount(() => quantityCount - 1);
       updateCartAmount(product.id, quantityCount - 1);

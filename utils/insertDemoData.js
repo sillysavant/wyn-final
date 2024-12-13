@@ -227,26 +227,57 @@ const demoCategories = [
 ];
 
 async function insertDemoData() {
-  for (const product of demoProducts) {
-    await prisma.product.create({
-      data: product,
-    });
-  }
-  console.log("Demo products inserted successfully!");
+  // Clear existing data first (optional)
+  await prisma.product.deleteMany({});
+  await prisma.category.deleteMany({});
 
-  for (const image of demoProductImages) {
-    await prisma.image.create({
-      data: image,
-    });
-  }
-  console.log("Demo images inserted successfully!");
-
+  // First insert categories and store their IDs
+  const categoryMap = new Map();
   for (const category of demoCategories) {
-    await prisma.category.create({
-      data: category,
-    });
+    try {
+      const createdCategory = await prisma.category.create({
+        data: category,
+      });
+      categoryMap.set(category.name, createdCategory.id);
+      console.log(
+        `Created category: ${category.name} with ID: ${createdCategory.id}`
+      );
+    } catch (error) {
+      console.error(`Error creating category ${category.name}:`, error);
+    }
   }
   console.log("Demo categories inserted successfully!");
+
+  // Then insert products with correct category IDs
+  for (const product of demoProducts) {
+    try {
+      const categoryId = categoryMap.get(product.category);
+      if (!categoryId) {
+        console.error(`No category ID found for ${product.category}`);
+        continue;
+      }
+
+      const productData = {
+        title: product.title,
+        price: product.price,
+        rating: product.rating,
+        description: product.description,
+        mainImage: product.mainImage,
+        slug: product.slug,
+        manufacturer: product.manufacturer,
+        categoryId: categoryId,
+        inStock: product.inStock,
+      };
+
+      const createdProduct = await prisma.product.create({
+        data: productData,
+      });
+      console.log(`Created product: ${product.title}`);
+    } catch (error) {
+      console.error(`Error creating product ${product.title}:`, error);
+    }
+  }
+  console.log("Demo products inserted successfully!");
 }
 
 insertDemoData()

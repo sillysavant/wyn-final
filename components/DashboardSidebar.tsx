@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: Sidebar on admin dashboard page
 // Name of the component: DashboardSidebar.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <DashboardSidebar />
 // Input parameters: no input parameters
@@ -15,7 +15,6 @@ import { FaRegUser } from "react-icons/fa6";
 import { FaGear } from "react-icons/fa6";
 import { FaBagShopping } from "react-icons/fa6";
 import { MdCategory } from "react-icons/md";
-
 
 import Link from "next/link";
 

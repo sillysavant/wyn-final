@@ -1,7 +1,7 @@
 // *********************
 // Role of the component: Category wrapper that will contain title and category items
 // Name of the component: CategoryMenu.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <CategoryMenu />
 // Input parameters: no input parameters

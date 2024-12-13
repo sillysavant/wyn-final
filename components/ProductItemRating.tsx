@@ -1,11 +1,11 @@
 // *********************
 // Role of the component: Showing stars for the given rating number
 // Name of the component: ProductItemRating.tsx
-// Developer: Aleksandar Kuzmanovic
+// Developer: Vinh Long Tran
 // Version: 1.0
 // Component call: <ProductItemRating productRating={productRating} />
 // Input parameters: { productRating: number }
-// Output: full colored or outlined star icon depending on the element of the rating array("empty star" or "full star") 
+// Output: full colored or outlined star icon depending on the element of the rating array("empty star" or "full star")
 // *********************
 
 "use client";
@@ -30,16 +30,19 @@ const ProductItemRating = ({ productRating }: { productRating: number }) => {
   }
   return (
     <div className="flex">
-        { rating && rating?.map(singleRating => {
-return (
-    <div  key={nanoid()}>
-    {singleRating === "full star" && <AiFillStar className="text-yellow-400 text-xl" />}
-    {singleRating === "empty star" && <AiOutlineStar className="text-yellow-400 text-xl" />}
-    </div>
-    
-)
-        }) }
-
+      {rating &&
+        rating?.map((singleRating) => {
+          return (
+            <div key={nanoid()}>
+              {singleRating === "full star" && (
+                <AiFillStar className="text-yellow-400 text-xl" />
+              )}
+              {singleRating === "empty star" && (
+                <AiOutlineStar className="text-yellow-400 text-xl" />
+              )}
+            </div>
+          );
+        })}
     </div>
   );
 };

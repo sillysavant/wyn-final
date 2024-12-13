@@ -1,31 +1,48 @@
-import prisma from "@/utils/db";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
-import { nanoid } from "nanoid";
 import { NextResponse } from "next/server";
 
-export const POST = async (request: any) => {
-  const { email, password } = await request.json();
+const prisma = new PrismaClient();
 
-  const existingUser = await prisma.user.findFirst({ where: { email } });
-
-  if (existingUser) {
-    return new NextResponse("Email is already in use", { status: 400 });
-  }
-
-  const hashedPassword = await bcrypt.hash(password, 5);
-
+export async function POST(req: Request) {
   try {
-    await prisma.user.create({
-      data: {
-        id: nanoid() + "",
-        email,
-        password: hashedPassword,
+    const { email, password } = await req.json();
+    console.log("Received registration request for:", email);
+
+    // Check if user already exists
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        email: email,
       },
     });
-    return new NextResponse("user is registered", { status: 200 });
-  } catch (err: any) {
-    return new NextResponse(err, {
-      status: 500,
+
+    if (existingUser) {
+      return new NextResponse("User already exists", { status: 400 });
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create new user without specifying the id (let MongoDB generate it)
+    const user = await prisma.user.create({
+      data: {
+        email,
+        password: hashedPassword,
+        role: "user", // optional, as it defaults to "user" in schema
+      },
     });
+
+    return NextResponse.json({
+      message: "User created successfully",
+      user: {
+        email: user.email,
+        role: user.role,
+      },
+    });
+  } catch (error) {
+    console.error("Registration error:", error);
+    return new NextResponse(`Error creating user: ${error}`, { status: 500 });
+  } finally {
+    await prisma.$disconnect();
   }
-};
+}
