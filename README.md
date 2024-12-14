@@ -5,7 +5,6 @@
 <h2>Instructions</h2>
 <ol>
   <li><p>To run the app you first need to download and install Node.js and npm on your computer. Here is a link to the tutorial that explains how to install them: <a href="https://www.youtube.com/watch?v=4FAtFwKVhn0" target="_blank">https://www.youtube.com/watch?v=4FAtFwKVhn0</a>. Also here is the link where you can download them: <a href="https://nodejs.org/en" target="_blank">https://nodejs.org/en</a></p></li>
-  <li><p>When you install Node.js and npm on your computer you need to download and install MySQL on your computer. Here is another link to the tutorial which explains how you can download and install MySQL on your computer: <a target="_blank" href="https://www.youtube.com/watch?v=BxdSUGBs0gM&t=212s">https://www.youtube.com/watch?v=BxdSUGBs0gM&t=212s</a>.</p></li>
   <li><p>Create a database and cluster to manage data on MongoDB Atlas: <a href="https://www.youtube.com/watch?v=NcN9S0DR1nU" target="_blank">https://www.youtube.com/watch?v=NcN9S0DR1nU</a>. Connect to the database: Connect > Connect to your application > Copy the connection string > Paste it in the .env file.</p></li>
   <li><p>When you install all the programs you need on your computer you need to download the project. When you download the project, you need to extract it.</p></li>
   <li><p>After you extract the project you need to open the project folder in your code editor and in the root create a file with the name .env.</p></li>
