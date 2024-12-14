@@ -27,6 +27,7 @@ const RegisterPage = () => {
     const email = e.target[2].value;
     const password = e.target[3].value;
     const confirmPassword = e.target[4].value;
+    const termsCheckbox = e.target[5].value;
 
     if (!isValidEmail(email)) {
       setError("Email is invalid");
@@ -43,6 +44,12 @@ const RegisterPage = () => {
     if (confirmPassword !== password) {
       setError("Passwords are not equal");
       toast.error("Passwords are not equal");
+      return;
+    }
+
+    if (!termsCheckbox) {
+      setError("You must accept the terms and privacy policy");
+      toast.error("You must accept the terms and privacy policy");
       return;
     }
 
@@ -187,13 +194,13 @@ const RegisterPage = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
-                    id="remember-me"
-                    name="remember-me"
+                    id="termsCheckbox"
+                    name="termsCheckbox"
                     type="checkbox"
                     className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
                   />
                   <label
-                    htmlFor="remember-me"
+                    htmlFor="termsCheckbox"
                     className="ml-3 block text-sm leading-6 text-gray-900"
                   >
                     Accept our terms and privacy policy
