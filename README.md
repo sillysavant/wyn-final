@@ -1,6 +1,6 @@
 <h1>Electronics eCommerce Shop With Admin Dashboard in Next.js and Node.js</h1>
 
-<p><b>WYN</b> is a <b>free eCommerce store</b> developed using Next.js, Node.js and MongoDB. The application is completely built from scratch(custom design) and completely responsive. The goal of the project is to create a modern web application <b>by following key stages in software engineering</b>. I have created this online shop as part of my Web Dev class in my Graduate program.
+<p><b>WYN</b> is a <b>free eCommerce store</b> developed using Next.js, Node.js and MongoDB. The application is completely built from scratch (custom design) and completely responsive. The goal of the project is to create a modern web application <b>by following key stages in software engineering</b>. I have created this online shop as part of my Web Dev class in my Graduate program.
 
 <h2>Instructions</h2>
 <ol>
